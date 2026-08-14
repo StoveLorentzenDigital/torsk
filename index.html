@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
     <meta name="theme-color" content="#12131a" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>Torsk</title>
     <style>
       html,
@@ -12,6 +16,17 @@
         height: 100%;
         background: #12131a;
         overflow: hidden;
+        /* Mobile: the canvas is the whole UI, so every stock touch gesture is
+           an interruption. Without these, a tap-to-move drag scrolls the page
+           or triggers pull-to-refresh, and a double tap zooms. */
+        touch-action: none;
+        overscroll-behavior: none;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        /* iOS Safari enlarges text on rotate; there is no text, but the canvas
+           parent is still subject to it. */
+        -webkit-text-size-adjust: 100%;
       }
       #game {
         display: grid;
@@ -21,9 +36,10 @@
       #game canvas {
         /* Keep the upscaled canvas crisp, not smoothed. */
         image-rendering: pixelated;
+        touch-action: none;
       }
     </style>
-    <script type="module" crossorigin src="/torsk/assets/index-CZ8kpiA_.js"></script>
+    <script type="module" crossorigin src="/torsk/assets/index-DRZB_Nw4.js"></script>
   <link rel="manifest" href="/torsk/manifest.webmanifest"></head>
   <body>
     <div id="game"></div>
