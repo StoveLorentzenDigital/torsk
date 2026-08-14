@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#12131a" />
+    <title>Torsk</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #12131a;
+        overflow: hidden;
+      }
+      #game {
+        display: grid;
+        place-items: center;
+        height: 100%;
+      }
+      #game canvas {
+        /* Keep the upscaled canvas crisp, not smoothed. */
+        image-rendering: pixelated;
+      }
+    </style>
+    <script type="module" crossorigin src="/torsk/assets/index-XJLuK2Lp.js"></script>
+  <link rel="manifest" href="/torsk/manifest.webmanifest"></head>
+  <body>
+    <div id="game"></div>
+  </body>
+</html>
