@@ -14,27 +14,20 @@
       body {
         margin: 0;
         height: 100%;
-        /* dvh tracks mobile browser chrome as it slides away; the 100% above is
-           the fallback for anything that doesn't know the unit. Without it the
-           canvas is sized for a viewport partly behind the URL bar. */
+        /* dvh tracks mobile browser chrome; 100% above is the fallback. */
         height: 100dvh;
         background: #12131a;
         overflow: hidden;
-        /* Mobile: the canvas is the whole UI, so every stock touch gesture is
-           an interruption. Without these, a tap-to-move drag scrolls the page
-           or triggers pull-to-refresh, and a double tap zooms. */
+        /* The canvas is the whole UI, so stock touch gestures are disabled. */
         touch-action: none;
         overscroll-behavior: none;
         user-select: none;
         -webkit-user-select: none;
         -webkit-tap-highlight-color: transparent;
-        /* iOS Safari enlarges text on rotate; there is no text, but the canvas
-           parent is still subject to it. */
         -webkit-text-size-adjust: 100%;
       }
-      /* EXPAND sizes the canvas from this element, so it has to be exactly the
-         window — a shrink-to-fit parent would feed Phaser the canvas's own
-         size and pin the game at its minimum. */
+      /* EXPAND sizes the canvas from this element, so it must be exactly the
+         window; a shrink-to-fit parent would pin the game at its minimum. */
       #game {
         width: 100%;
         height: 100%;
@@ -44,12 +37,11 @@
         /* Keep the upscaled canvas crisp, not smoothed. */
         image-rendering: pixelated;
         touch-action: none;
-        /* Canvas is inline by default; the baseline gap under it would make the
-           parent overflow and hand Phaser a slightly-too-tall size each resize. */
+        /* Not inline: the baseline gap would overflow the parent. */
         display: block;
       }
     </style>
-    <script type="module" crossorigin src="/torsk/assets/index-BQYtWQvC.js"></script>
+    <script type="module" crossorigin src="/torsk/assets/index-CRTIpbjR.js"></script>
   <link rel="manifest" href="/torsk/manifest.webmanifest"></head>
   <body>
     <div id="game"></div>
